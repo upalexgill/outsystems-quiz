@@ -1,0 +1,113 @@
+.card {
+  border-radius: 0;
+}
+
+.input-group {
+  background-color: #00a8af;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+  border-radius: 8px;
+
+  label {
+    padding: 12px 30px;
+    width: 100%;
+    display: block;
+    text-align: left;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+
+    &::before {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      content: "";
+      background-color: #5562eb;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      opacity: 0;
+      z-index: 3;
+    }
+
+    &::after {
+      width: 32px;
+      height: 32px;
+      content: "";
+      border: 2px solid #d1d7dc;
+      background-color: #fff;
+      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+      background-repeat: no-repeat;
+      background-position: 2px 3px;
+      border-radius: 50%;
+      z-index: 2;
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      transition: all 200ms ease-in;
+    }
+  }
+}
+
+.form {
+  padding: 0 16px;
+  max-width: 550px;
+  margin: 1rem auto;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-label {
+  &:hover {
+    background-color: #1c4755;
+    z-index: 4;
+    color: white;
+    display: block;
+    position: relative;
+    border-radius: 8px;
+
+    input ~ .indicator {
+      background-color: #00a8af;
+    }
+  }
+
+  input:checked ~ .indicator::after {
+    display: block;
+  }
+
+  .indicator {
+    position: absolute;
+    z-index: 4;
+    top: 14px;
+    right: 30px;
+    height: 32px;
+    width: 32px;
+    background-color: #eee;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+}
